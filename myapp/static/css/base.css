@@ -230,69 +230,120 @@ ul.clean-list {
 
 
 
+/* GRID layout for top dashboard cards (3 columns) */
 .dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    display: grid; /* enables CSS grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 24px; /* space between cards */
 }
 
+/* General styling for each dashboard card */
 .dashboard-card {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: white; /* white card background */
+    border-radius: 16px; /* rounded corners */
+    padding: 20px; /* space inside card */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* soft shadow */
 }
 
+/* Large numbers (e.g. task count, project count) */
 .big-number {
-    font-size: 32px;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 32px; /* makes number big */
+    font-weight: bold; /* bold text */
+    margin-top: 10px; /* spacing above number */
 }
 
-
+/* Circular progress container */
 .progress-circle {
-    width: 150px;
+    width: 150px; /* circle size */
     height: 150px;
-    border-radius: 50%;
-    display: flex;
+    border-radius: 50%; /* makes it circular */
+    display: flex; /* centers inner content */
     align-items: center;
     justify-content: center;
-    margin: 24px auto 0;
+    margin: 24px auto 0; /* center horizontally */
 }
 
+/* Inner white circle (where % is shown) */
 .progress-circle span {
     width: 105px;
     height: 105px;
-    background: white;
-    border-radius: 50%;
+    background: white; /* white center */
+    border-radius: 50%; /* circular shape */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
+    font-size: 26px; /* size of percentage text */
     font-weight: bold;
 }
+
+/* Progress card sizing */
 .progress-card {
-    margin-top: 30px;
-    max-width: 300px;
+    margin-top: 30px; /* pushes it slightly down */
+    max-width: 300px; /* limits width */
 }
 
+/* Bottom section layout (Git + Progress + Tasks) */
 .dashboard-bottom {
-    display: flex;
-    gap: 30px;
+    display: flex; /* horizontal layout */
+    gap: 30px; /* spacing between cards */
     margin-top: 20px;
+    align-items: flex-start; /* aligns cards at top */
 }
 
+/* Task card grows to fill remaining space */
 .task-card {
     flex: 1;
 }
 
+/* Git card fixed width */
+.git-card {
+    width: 300px;
+    min-height: 260px; /* ensures minimum height */
+}
 
+/* Vertical commit timeline list */
+.commit-list {
+    list-style: none; /* removes bullet points */
+    margin-top: 18px;
+    padding-left: 24px; /* space for timeline line */
+    border-left: 3px solid #ff9f55; /* vertical orange line */
+}
 
+/* Each commit item */
+.commit-list li {
+    position: relative;
+    margin-bottom: 22px; /* space between commits */
+    font-size: 13px;
+    font-weight: 600;
+}
 
+/* Circle markers for each commit */
+.commit-list li::before {
+    content: "";
+    position: absolute;
+    left: -31px; /* positions dot on the line */
+    top: 2px;
+    width: 14px;
+    height: 14px;
+    background: #777; /* grey dot */
+    border-radius: 50%; /* circular */
+}
 
+/* (duplicate block) Bottom layout again */
+.dashboard-bottom {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
 
+/* (duplicate) Git card width */
+.git-card {
+    width: 300px;
+}
 
-
-
-
-
+/* Task card pushed slightly lower for alignment */
+.task-card {
+    flex: 1;
+    margin-top: 30px; /* pushes it lower */
+}

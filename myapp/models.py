@@ -103,3 +103,11 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title  # returns the task title when the object is displayed
+
+
+
+class Commit(models.Model):
+    message = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.message

@@ -24,7 +24,9 @@
 
         <!-- sidebar navigation -->
         <aside class="sidebar">
-            <a href="{% url 'home' %}" class="logo">sky</a> <!-- logo -->
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/Sky_logo_2025.svg.png' %}" alt="Sky Logo" height="60">
+            </a>    <!-- logo -->
 
             <nav>
                 <!-- each link includes an icon + text and highlights if active -->
@@ -104,7 +106,7 @@
 
         const toggleBtn = document.getElementById('theme-toggle');
 
-        // function to update the icon (moon ↔ sun)
+        // function to update the icon (moon or sun)
         function setThemeIcon(iconName) {
             if (toggleBtn) {
                 toggleBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;

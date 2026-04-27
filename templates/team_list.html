@@ -22,6 +22,7 @@
 
             <p><strong>Leader:</strong> {{ team.manager_name }}</p> <!-- shows manager -->
             <p><strong>Email:</strong> {{ team.manager_email }}</p> <!-- shows email -->
+            <p><strong>Members:</strong> {{ team.members.count }}</p><!-- shows amount of members -->
 
         </a>
     {% empty %} <!-- shown if no teams exist -->

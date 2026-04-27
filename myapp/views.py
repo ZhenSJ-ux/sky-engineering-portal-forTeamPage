@@ -2,10 +2,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q # imports Q to allow advanced search using OR conditions
 from django.core.mail import send_mail # imports Django email function
-from .models import Team, Meeting, Task # imports database models
+from .models import Team, Meeting, Task, Commit # imports database models
 from .forms import EmailTeamForm, MeetingForm # imports forms used for email and meetings
 from django.utils.timezone import now
-from .models import Task
+
 
 
 # displays the about page
@@ -120,8 +120,8 @@ def team_members(request, team_id):
 
 # displays dashboard/home page
 def home(request):
-    team_count = Team.objects.count() # count total number of teams
-    meeting_count = Meeting.objects.count() # count total number of meetings
+    task_count = Task.objects.filter(completed=True).count() # count total number of teams
+    project_count = Team.objects.count() # count total number of meetings
 
     # get the next 3 meetings happening today or in the future
     upcoming_meetings = Meeting.objects.filter(
@@ -143,12 +143,15 @@ def home(request):
     else:
         progress = 0 # avoid division by zero if no tasks exist
     # send all data to the home.html template
+    commits = Commit.objects.all().order_by('id')[:5]
+
     return render(request, 'home.html', {
-        'team_count': team_count,
-        'meeting_count': meeting_count,
-        'upcoming_meetings': upcoming_meetings,
-        'upcoming_tasks': upcoming_tasks,
-        'progress': progress,
+    'task_count': task_count,
+    'project_count': project_count,
+    'upcoming_meetings': upcoming_meetings,
+    'upcoming_tasks': upcoming_tasks,
+    'progress': progress,
+    'commits': commits,
     })
 
     
