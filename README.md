@@ -30,3 +30,5 @@ http://localhost:8000/teams/2/members/
 
 Django admin panel 
 http://localhost:8000/admin/ 
+
+admin admin is the username and password for the panel
