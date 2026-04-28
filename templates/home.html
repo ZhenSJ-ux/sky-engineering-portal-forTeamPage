@@ -119,15 +119,17 @@ document.addEventListener("DOMContentLoaded", function () {
         // GRAPH STYLING
         style: [
             {
-                selector: 'node',
-                style: {
-                    'label': 'data(label)',        // show commit message
-                    'background-color': '#777',    // node colour
-                    'text-valign': 'center',
-                    'color': '#000',
-                    'font-size': '10px'
-                }
-            },
+    selector: 'node',
+    style: {
+        'label': 'data(label)',
+        'background-color': '#777',   // grey dot
+        'text-valign': 'center',
+        'color': '#ffffff',              // keep white (best readability)
+        'font-size': '12px',             // makes it bigger
+        'text-outline-width': 2,
+        'text-outline-color': '#000000'  // outline matches node
+    }
+},
             {
                 selector: 'edge',
                 style: {
